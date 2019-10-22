@@ -1,0 +1,42 @@
+         QEMU DEB INSTALL AND RUN 
+         =======================
+
+INSTALL
+=======
+Run install script as below, 
+
+    $sh install.sh
+
+RUNNING QEMU FROM COMMANDLINE
+============================
+
+Ex:
+
+Booting up dsl-4.4.10.iso linux iso
+
+kvm-spice -m 1024 -enable-kvm -drive if=virtio,file=/home/nbel0004/Documents/device_driver/QEMU_BITBUCKET/qemu/bin/debug/native/test.qcow2,cache=none  -usb -device usb-kbd -cdrom /home/nbel0004/Documents/device_driver/QEMU/dsl-4.4.10.iso
+
+
+Ex:
+
+Booting up a windows img
+
+kvm-spice -m 1024 -enable-kvm -drive if=virtio,file=/home/nbel0004/Documents/device_driver/QEMU_BITBUCKET/qemu/bin/debug/native/test.qcow2,cache=none  -usb -device usb-kbd -boot d /home/nbel0004/Documents/device_driver/QEMU/box.img
+
+
+Options:
+-------
+
+-driver                       Create a qcow2 image and pass absolute path of the image
+                              Ex: qemu-img create -f qcow2 test.qcow2 16G
+
+-usb -device  usb-kbd         Is the syntax for passing the custom keyboard.
+
+-cdrom                        Use this flag if you are using .iso to boot up
+
+-boot d                       Use this flag if you are using a .img to boot up
+
+
+
+
+-- End
